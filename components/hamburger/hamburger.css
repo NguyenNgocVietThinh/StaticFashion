@@ -1,0 +1,142 @@
+:root {
+    --bg-color: #d0d0d0;
+    --txt-color: #221e22;
+    --yellow: #e29f01;
+    --white: #ffff;
+    --black: #000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+body,
+html {
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    background-position: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: var(--white);
+    z-index: 1;
+}
+
+.nav {
+    z-index: 101;
+    color: var(--white);
+    display: flex;;
+    position: fixed;
+    top: 0;
+    width: 30%;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 80px;
+}
+
+.menu {
+    width: 30px;
+    height: 30px;
+    z-index: 101;
+    cursor: pointer;
+    animation: left-to-right 1.5s forwards;
+}
+
+.hamburger {
+    position: relative;
+    cursor: pointer;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    width: 30px;
+    height: 3px;
+    border-radius: 0.5rem;
+    background-color: var(--black);
+    transition: .4s;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+}
+
+.hamburger::before {
+    top: -10px;
+}
+
+.hamburger::after {
+    top: 10px;
+}
+
+.hamburger.active {
+    background-color: transparent;
+}
+
+.hamburger.active::before {
+    transform-origin: top left;
+    transform: rotate(45deg);
+    left: 6px; 
+}
+
+.hamburger.active::after {
+    transform-origin: bottom left;
+    transform: rotate(-45deg);
+    left: 6px; 
+}
+
+.nav-overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 101;
+    top: 80px;
+    left: 0;
+    background-color: var(--bg-color);
+    overflow: hidden;
+    transition: .5s;
+}
+
+.nav-overlay.active {
+    width: 100%;
+}
+
+.nav-overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.nav-overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: .3s;
+}
+
+.nav-overlay a:hover {
+    color: #f1f1f1;
+}
